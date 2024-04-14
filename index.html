@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Implementando o ChartJS</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body style="display: flex; align-items: center; justify-content: center; height: 100vh;">
+
+    <div style="width:800px;">
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <div style="width:800px;">
+        <canvas id="myChart2"></canvas>
+    </div>
+    
+</body>
+
+<script>
+    const ctx = document.getElementById('myChart');
+    const cty = document.getElementById('myChart2');
+
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
+            datasets: [{
+                    label: 'Umidade',
+                    data: [80, 82, 80, 85, 85, 83],
+                    borderWidth: 2,
+                    order: 2,
+                    backgroundColor: '#36A2EB',
+                    borderColor: '#36A2EB'
+                },{
+                    label: 'Temperatura',
+                    data: [30, 29, 28, 25, 22, 23],
+                    borderWidth: 2,
+                    order: 1,
+                    backgroundColor: '#FF6384',
+                    borderColor: '#FF6384'
+                }
+            ]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: false
+                }
+            }
+        }
+    });
+
+    new Chart(cty, {
+        type: 'bar',
+        data: {
+            labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+            datasets: [{
+                    label: 'Umidade média',
+                    data: [90, 89, 93, 87, 88, 82],
+                    borderWidth: 2,
+                    order: 2,
+                    backgroundColor: '#36A2EB',
+                    borderColor: '#36A2EB'
+                },{
+                    label: 'Temperatura média',
+                    data: [22, 24, 27, 23, 20, 18],
+                    borderWidth: 2,
+                    order: 1,
+                    backgroundColor: '#FF6384',
+                    borderColor: '#FF6384'
+                }
+            ]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+
+</html>
